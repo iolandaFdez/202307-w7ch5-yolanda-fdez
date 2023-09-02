@@ -1,4 +1,6 @@
-import { WithqdwicdfId } from '../entities/id'
+type Id =  {
+  id: string;
+ }
 
 export type LoginData = {
   userName: string;
@@ -9,8 +11,13 @@ export type LoginData = {
 export type UserNoId = LoginData & {
   firstName: string;
   nick: string;
-  team: string;
+  allies: User;
+  enemies: User;
+  isAlive: Boolean
+
     
 };
 
-export type User = WithId & UserNoId;
+
+
+export type User = Id & UserNoId;
