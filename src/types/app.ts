@@ -2,11 +2,11 @@ import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import createDebug from 'debug';
-import { taskRouter } from './router/task.router.js';
-import { errorMiddleware } from './middleware/error.middleware.js';
-import { noteRouter } from './router/note.router.js';
-import { userRouter } from './router/user.router.js';
-import { HttpError } from './types/http.error.js';
+
+import { errorMiddleware } from '../middleware/error.middleware.js';
+
+import { userRouter } from '../router/user.routes.js';
+import { HttpError } from '../types/http.error.js';
 
 const debug = createDebug('W6E:App');
 export const app = express();
@@ -27,12 +27,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.get('/', (req: Request, res: Response) => {
   debug('Hello jupiter');
-  res.write('<h1>Hello Calisteo</h1>');
+  res.write('<h1>Hello chess wars</h1>');
   res.end();
 });
 
-app.use('/tasks', taskRouter);
-app.use('/notes', noteRouter);
+
 app.use('/users', userRouter);
 
 app.use('/:id', (req: Request, res: Response, next: NextFunction) => {
