@@ -11,6 +11,9 @@ const repo = new UsersMongoRepository();
 const userController = new UsersController(repo);
 export const userRouter = createRouter();
 
+
+
+
 userRouter.patch('/login', userController.login.bind(userController));
 userRouter.post('/register', userController.create.bind(userController));
 
