@@ -11,7 +11,7 @@ const debug = createDebug('W6E:Controller:UsersController');
 export class UsersController extends Controller<User> {
   constructor(protected repo: Repository<User>) {
     super(repo);
-    debug('Instantiated');
+    debug('UserController ok');
   }
 
   async login(req: Request, res: Response, next: NextFunction) {
