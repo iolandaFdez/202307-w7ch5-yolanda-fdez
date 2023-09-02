@@ -1,6 +1,6 @@
 import { createServer } from "http";
 import  createDebug  from 'debug'
-import { app } from "./types/app.js";
+import { app } from "../app.js";
 import { dbConnect } from "./db/db.connect.js";
 
 const server = createServer(app);
