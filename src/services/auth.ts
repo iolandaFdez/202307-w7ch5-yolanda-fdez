@@ -1,7 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { TokenPayload } from '../types/token';
-import { HttpError } from '../types/http.error';
+import "dotenv/config"
+import { TokenPayload } from '../types/token.js';
+import { HttpError } from '../types/http.error.js';
 
 export class Auth {
     private static secret = process.env.TOKEN_SECRET!;
