@@ -3,12 +3,12 @@ import { Router as createRouter } from 'express';
 
 import createDebug from 'debug';
 import { UsersMongoRepository } from '../repository/users.mongo.repository.js';
-import { UsersController } from '../controller/user.controller.js';
+import { UserController } from '../controller/user.controller.js';
 const debug = createDebug('W6E:Router:UsersRouter');
 
 debug('Loaded');
 const repo = new UsersMongoRepository();
-const userController = new UsersController(repo);
+const userController = new UserController(repo);
 export const userRouter = createRouter();
 
 

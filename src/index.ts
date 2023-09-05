@@ -3,7 +3,9 @@ import  createDebug  from 'debug'
 
 import { dbConnect } from "./db/db.connect.js";
 import { app } from "./app.js";
+import "dotenv/config";
 
+const PORT = process.env.PORT || 8000
 
 const server = createServer(app);
 
@@ -12,7 +14,7 @@ debug('connected to db', mongoose.connection.db.databaseName)}).catch()
 
 const debug = createDebug('W7');
 
-const PORT = process.env.PORT || 5000;
+
 
 
 server.on('listening', () => {
