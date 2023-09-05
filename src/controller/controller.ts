@@ -14,6 +14,10 @@ export interface ControllerStructure {
 }
 
 export abstract class Controller<T extends { id: string | number }> {
+  static getAll(mockRequest: Request<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs, Record<string, any>>, mockResponse: Response<any, Record<string, any>>, mockNext: NextFunction) {
+      throw new Error('Method not implemented.');
+  }
+
   constructor(protected repo: Repository<T>) {}
   async getAll(req: Request, res: Response, next: NextFunction) {
     try {

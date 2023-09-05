@@ -3,10 +3,10 @@ import cors from 'cors';
 import morgan from 'morgan';
 import createDebug from 'debug';
 
-import { errorMiddleware } from './src/middleware/error.middleware.js';
+import { errorMiddleware } from './middleware/error.middleware.js';
 
-import { userRouter } from './src/router/user.routes.js';
-import { HttpError } from './src/types/http.error.js';
+import { userRouter } from './router/user.routes.js';
+import { HttpError } from './types/http.error.js';
 
 const debug = createDebug('W6E:App');
 export const app = express();

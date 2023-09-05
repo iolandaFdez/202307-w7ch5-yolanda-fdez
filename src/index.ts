@@ -1,7 +1,9 @@
 import { createServer } from "http";
 import  createDebug  from 'debug'
-import { app } from "../app.js";
+
 import { dbConnect } from "./db/db.connect.js";
+import { app } from "./app.js";
+
 
 const server = createServer(app);
 

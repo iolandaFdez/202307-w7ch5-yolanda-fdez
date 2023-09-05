@@ -1,6 +1,8 @@
     import { Request, Response, NextFunction } from 'express';
     import { Controller } from './controller'; 
     import { Repository } from '../repository/users.repository'; 
+import { UsersMongoRepository } from '../repository/users.mongo.repository';
+import { User } from '../entities/user';
 
 
     describe('Controller', () => {
@@ -11,11 +13,11 @@
             getAll: jest.fn().mockResolvedValue([{ id: 1, name: 'Item 1' }]),
         } as unknown as Repository<any>
 
-        const controller = new Controller<unknown>(mockRepo);
+        const controller = new UsersMongoRepository;
         const mockRequest = {} as Request;
         const mockResponse = {
-            json: jest.fn(),
-        } as unknown as Response;
+            json: jest.fn(), 
+        }as unknown as Response;
         const mockNext = jest.fn() as NextFunction;
       
 
@@ -27,16 +29,17 @@
 
         it('should call next when getAll fails', async () => {
 
-        const mockRepo: Repository<any> = {
+        const mockRepo: Controller<any> = {
             getAll: jest.fn().mockResolvedValue([{ id: 1, name: 'Item 1' }]),
             getById: jest.fn().mockResolvedValue({ id: 1, name: 'Item 1' }),
             create: jest.fn().mockResolvedValue({ id: 2, name: 'Item 2' }),
             update: jest.fn().mockResolvedValue({ id: 1, name: 'Updated Item' }),
             delete: jest.fn().mockResolvedValue(undefined),
+        
         };
         
 
-        const controller = new Controller<any>(mockRepo);
+        const controller = new Controller<User>(mockRepo);
         const mockRequest = {} as Request;
         const mockResponse = {} as Response;
         const mockNext = jest.fn() as NextFunction;

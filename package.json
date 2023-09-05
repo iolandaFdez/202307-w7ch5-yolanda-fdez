@@ -42,6 +42,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "cloudinary": "^1.40.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
