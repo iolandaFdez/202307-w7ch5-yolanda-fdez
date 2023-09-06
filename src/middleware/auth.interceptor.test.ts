@@ -58,9 +58,9 @@ describe('Given AuthInterceptor and instantiate it', () => {
     } as unknown as Repository<Item>;
 
     const authenticationMiddleware = interceptor.authentication<Item>(
-      repo,
-      'owner'
-    );
+        repo,
+        'owner'
+      );
 
     test('middleware should be called without error', async () => {
       const mockRequest = {
