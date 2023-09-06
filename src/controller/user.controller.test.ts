@@ -44,8 +44,8 @@ describe('Given the class UserController', () => {
     test('Then, we use the create() method', async () => {
       const mockedUser = {
         "userName": "Paula",
-        "passwd": "punknotdead",
-        "email": "punk@gmail",
+        "passwd": "12345",
+        "email": "pazumito@gmail",
         "firstName": "catalan",
         "nick": "Pazumito",
         "allies": [],
