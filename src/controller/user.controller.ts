@@ -6,6 +6,7 @@ import { Request, Response, NextFunction } from 'express';
 import { HttpError } from '../types/http.error.js';
 import { Auth } from '../services/auth.js';
 import { TokenPayload } from '../types/token.js';
+
 const debug = createDebug('W6E:Controller:UsersController');
 
 export class UserController extends Controller<User> {
@@ -51,7 +52,7 @@ export class UserController extends Controller<User> {
     }
   }
 
-  async update(req: Request, res: Response, next: NextFunction) {
+  async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { id } = req.params;
       if (req.body.passwd) {

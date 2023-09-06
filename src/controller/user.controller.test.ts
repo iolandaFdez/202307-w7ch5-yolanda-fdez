@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import { UsersMongoRepository } from '../repository/users.mongo.repository';
-import { UserController } from './user.controller';
+import { Request, Response, NextFunction } from 'express';
+import { UsersMongoRepository } from '../repository/users.mongo.repository.js';
+import { UserController } from './user.controller.js';
 
 describe('Given the class UserController', () => {
   describe('When it is instantiated', () => {
@@ -116,7 +116,7 @@ describe('Given the class UserController', () => {
       const mockResponse = {
         json: jest.fn(),
       } as unknown as Response;
-      const mockNext = jest.fn();
+      const mockNext = jest.fn() as NextFunction;
       await userController.getAll(mockRequest, mockResponse, mockNext);
       expect(mockRepo.getAll).toBeCalledWith();
       expect(mockNext).toHaveBeenCalledWith(new Error('GetAll Error'));
@@ -126,7 +126,7 @@ describe('Given the class UserController', () => {
         params: { id: '01' },
       } as unknown as Request;
       const mockResponse = {
-        json: jest.fn(),
+        json: jest.fn()  as NextFunction,
       } as unknown as Response;
       const mockNext = jest.fn();
       await userController.getById(mockRequest, mockResponse, mockNext);
@@ -149,10 +149,12 @@ describe('Given the class UserController', () => {
         json: jest.fn(),
         status: jest.fn(),
       } as unknown as Response;
-      const mockNext = jest.fn();
+      const mockNext = jest.fn() as NextFunction;
       await userController.create(mockRequest, mockResponse, mockNext);
-      expect(mockNext).toHaveBeenCalledWith(new Error('Create Error'));
       expect(mockRepo.create).toHaveBeenCalled();
+      expect(mockNext).toHaveBeenCalledWith(new Error('Create Error'));
+
+    
     
     });
     test('Then, when we call update(), we should have an error', async () => {

@@ -10,6 +10,7 @@ debug('Loaded auth');
 
 
 export class AuthInterceptor {
+  authentication: any;
   authorization(req: Request, _res: Response, next: NextFunction) {
     debug('Call Authorization interceptor');
     try {
